@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Recette from "./pages/recette";
+import Apirequest from "./api"
 import './App.css'
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
           <div className="navbar">
               <Navbar/>
           </div>
+          <div className="api">
+             <Apirequest/>
+           </div>
               <Routes>
                   <Route exact path="/"  element={<Home></Home>}/>
                   <Route path="Contact" element={<Contact></Contact>}/>
