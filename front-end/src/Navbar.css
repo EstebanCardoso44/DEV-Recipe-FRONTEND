@@ -1,0 +1,27 @@
+/* src/components/Navbar.css */
+.navbar {
+  background-color: #333;
+  /* Couleur de fond de la navbar */
+  /* Espace intérieur de la navbar */
+}
+
+ul {
+  list-style: none;
+  /* Supprimer les puces de la liste */
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  /* Afficher les éléments de la liste en ligne */
+  margin-right: 20px;
+  /* Espacement entre les éléments de la liste */
+}
+
+a {
+  text-decoration: none;
+  /* Supprimer le soulignement des liens */
+  color: white;
+  /* Couleur du texte des liens */
+}

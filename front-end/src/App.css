@@ -18,30 +18,13 @@ body {
   position: flex;
   display: flex;
 }
+
 /* styles.css */
 
 .app {
   text-align: center;
 }
 
-.navbar {
-  background-color: #3498db;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  width: 100%; /* Largeur à 100% */
-  height: 7vh;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-}
-
-.navbar a:hover {
-  text-decoration: underline;
-}
 
 h1 {
   color: #333;
@@ -102,29 +85,35 @@ button {
   font-size: 14px;
   margin-left: auto;
 }
+
 /* contact*/
 
-.contact {
+.contact,
+.propos {
   text-align: center;
   margin-top: 20px;
 }
 
-.contact h2 {
+.contact h2,
+.propos h2 {
   color: #333;
 }
 
-.contact p {
+.contact p,
+.propos p {
   color: #555;
   font-size: 16px;
 }
 
-.contact a {
+.contact a,
+.propos a {
   color: #4caf50;
   text-decoration: none;
   font-weight: bold;
 }
 
-.contact a:hover {
+.contact a:hover,
+.propos a:hover {
   text-decoration: underline;
 }
 
@@ -135,6 +124,10 @@ button {
   position: fixed;
   bottom: 0;
   width: 100%;
-  left: 0; 
-  right: 0; 
+  left: 0;
+  right: 0;
+}
+
+#root {
+  width: 100%;
 }

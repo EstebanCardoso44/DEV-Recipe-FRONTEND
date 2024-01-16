@@ -1,21 +1,25 @@
 // src/components/Navbar.js
 import React from 'react';
-import './App.css'
-import { Link } from 'react-router-dom'; // Si tu utilises React Router
+import { Link } from 'react-router-dom';
+import './Navbar.css'; // Créez un fichier Navbar.css pour styliser la navbar
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
       <ul>
         <li>
           <Link to="/">Accueil</Link>
         </li>
         <li>
-          <Link to="./pages/Contact">Contact</Link>
+          <Link to="/Recette">Recette</Link>
         </li>
         <li>
-          <Link to="./pages/recette">Contact</Link>
+          <Link to="/Contact">Contact</Link>
         </li>
+        <li>
+          <Link to="/Propos">A Propos</Link>
+        </li>
+
       </ul>
     </nav>
   );
