@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
-const backendUrl = 'http://localhost:2000';
+const backendUrl = 'http://192.168.56.1:2000';
 
 const Recette = () => {
   const [recetteData, setRecetteData] = useState(null);
@@ -33,7 +33,7 @@ const Recette = () => {
       {recetteData ? (
         <div>
           {recetteData.map((recipe) => (
-            <div key={recipe.id}>
+            <div key={recipe.id} style={recipeContainerStyle}>
               <p>ID: {recipe.id}</p>
               <p>Nom de la recette: {recipe.recipe_name}</p>
               {/* Ajoutez d'autres éléments en fonction de votre structure de données */}
@@ -45,6 +45,13 @@ const Recette = () => {
       )}
     </div>
   );
+};
+
+const recipeContainerStyle = {
+  border: '1px solid #ccc',
+  borderRadius: '5px',
+  padding: '10px',
+  marginBottom: '10px',
 };
 
 export default Recette;

@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import Recette from "./pages/recette";
 import Propos from "./pages/Propos";
 import './App.css'
+import CreateRecipe from "./pages/CreateRecipe";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="Contact" element={<Contact></Contact>} />
                 <Route path="Recette" element={<Recette></Recette>} />
                 <Route path="Propos" element={<Propos></Propos>} />
+                <Route path="CreateRecipe" element={<CreateRecipe></CreateRecipe>} />
             </Routes>
         </BrowserRouter>
     );
