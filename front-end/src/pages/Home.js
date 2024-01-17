@@ -7,6 +7,8 @@ const backendUrl = 'http://192.168.234.1:2000';
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(''); // Ajout de l'état pour la recherche
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,12 +79,45 @@ const Home = () => {
     setSelectedRecipe(null);
   };
 
+  const handleCategoryChange = (event) => {
+    const category = event.target.value;
+    setSelectedCategory(category);
+  };
+
+  const handleSearchChange = (event) => {
+    const term = event.target.value;
+    setSearchTerm(term);
+  };
+
+  const filteredRecipes = recipes
+    .filter((recipe) => !selectedCategory || recipe.categorie === selectedCategory)
+    .filter((recipe) => recipe.recipe_name.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
     <div>
       <h1>Recipe List</h1>
-      {recipes.length > 0 ? (
+      {/* Ajouter le menu déroulant pour sélectionner la catégorie */}
+      <select onChange={handleCategoryChange}>
+        <option value="">Toutes les catégories</option>
+        {/* Remplacer le tableau suivant par les catégories réelles disponibles dans vos données */}
+        {Array.from(new Set(recipes.map((recipe) => recipe.categorie))).map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+
+      {/* Ajouter la barre de recherche */}
+      <input
+        type="text"
+        placeholder="Rechercher une recette..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+      />
+
+      {filteredRecipes.length > 0 ? (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {recipes.map((recipe) => (
+          {filteredRecipes.map((recipe) => (
             <div
               key={recipe.id}
               style={cardStyle}
@@ -94,7 +129,7 @@ const Home = () => {
           ))}
         </div>
       ) : (
-        <p>Chargement en cours...</p>
+        <p>Aucune recette correspondante.</p>
       )}
 
       {selectedRecipe && (
