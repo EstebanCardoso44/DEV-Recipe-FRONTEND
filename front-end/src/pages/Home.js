@@ -1,4 +1,3 @@
-// Home.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -8,14 +7,13 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(''); // Ajout de l'état pour la recherche
+  const [selectedDifficulty, setSelectedDifficulty] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${backendUrl}/recette`);
-
-        console.log(response);
 
         if (!response.data) {
           throw new Error(`Erreur lors de la requête : ${response.status}`);
@@ -84,6 +82,11 @@ const Home = () => {
     setSelectedCategory(category);
   };
 
+  const handleDifficultyChange = (event) => {
+    const difficulty = event.target.value;
+    setSelectedDifficulty(difficulty);
+  };
+
   const handleSearchChange = (event) => {
     const term = event.target.value;
     setSearchTerm(term);
@@ -91,15 +94,15 @@ const Home = () => {
 
   const filteredRecipes = recipes
     .filter((recipe) => !selectedCategory || recipe.categorie === selectedCategory)
+    .filter((recipe) => !selectedDifficulty || recipe.difficulty_level === selectedDifficulty)
     .filter((recipe) => recipe.recipe_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <div>
       <h1>Recipe List</h1>
-      {/* Ajouter le menu déroulant pour sélectionner la catégorie */}
+
       <select onChange={handleCategoryChange}>
         <option value="">Toutes les catégories</option>
-        {/* Remplacer le tableau suivant par les catégories réelles disponibles dans vos données */}
         {Array.from(new Set(recipes.map((recipe) => recipe.categorie))).map((category) => (
           <option key={category} value={category}>
             {category}
@@ -107,7 +110,15 @@ const Home = () => {
         ))}
       </select>
 
-      {/* Ajouter la barre de recherche */}
+      <select onChange={handleDifficultyChange}>
+        <option value="">Toutes les difficultés</option>
+        {Array.from(new Set(recipes.map((recipe) => recipe.difficulty_level))).map((difficulty) => (
+          <option key={difficulty} value={difficulty}>
+            {difficulty}
+          </option>
+        ))}
+      </select>
+
       <input
         type="text"
         placeholder="Rechercher une recette..."
