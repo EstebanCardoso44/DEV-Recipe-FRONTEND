@@ -7,6 +7,7 @@ import Recette from "./pages/recette";
 import Propos from "./pages/Propos";
 import './App.css'
 import CreateRecipe from "./pages/CreateRecipe";
+import Register from "./pages/Register"
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path="CreateRecipe" element={<CreateRecipe></CreateRecipe>} />
                 <Route path="Propos" element={<Propos></Propos>} />
                 <Route path="CreateRecipe" element={<CreateRecipe></CreateRecipe>} />
+                <Route path="Register" element={<Register></Register>} />
             </Routes>
         </BrowserRouter>
     );
