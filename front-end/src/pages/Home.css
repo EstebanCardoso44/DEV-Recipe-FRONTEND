@@ -1,0 +1,8 @@
+.search-field {
+  margin: 5px;
+  /* Ajoutez d'autres styles selon vos préférences */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}

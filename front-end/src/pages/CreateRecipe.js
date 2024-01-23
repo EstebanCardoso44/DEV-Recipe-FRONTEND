@@ -1,5 +1,8 @@
+// CreateRecipe.js
+
 import React, { useState } from 'react';
 import Axios from 'axios';
+import './CreateRecipe.css'; // Import du fichier CSS
 
 const CreateRecipe = () => {
   const [recipeData, setRecipeData] = useState({
@@ -47,8 +50,9 @@ const CreateRecipe = () => {
   };
 
   return (
-    <div>
+    <div className="create-recipe-container">
       <input
+        className="create-recipe-input"
         type="text"
         name="recipe_name"
         placeholder="Nom de la recette"
@@ -56,6 +60,7 @@ const CreateRecipe = () => {
         onChange={handleChange}
       />
       <select
+        className="create-recipe-select"
         name="categorie"
         value={recipeData.categorie}
         onChange={handleChange}
@@ -67,24 +72,28 @@ const CreateRecipe = () => {
         {/* Add more options based on your specific categories */}
       </select>
       <textarea
+        className="create-recipe-textarea"
         name="description"
         placeholder="Description"
         value={recipeData.description}
         onChange={handleChange}
       />
       <textarea
+        className="create-recipe-textarea"
         name="ingredients"
         placeholder="Ingrédients"
         value={recipeData.ingredients}
         onChange={handleChange}
       />
       <textarea
+        className="create-recipe-textarea"
         name="instructions"
         placeholder="Instructions"
         value={recipeData.instructions}
         onChange={handleChange}
       />
       <input
+        className="create-recipe-input"
         type="number"
         name="preparation_time"
         placeholder="Temps de préparation (en minutes)"
@@ -92,6 +101,7 @@ const CreateRecipe = () => {
         onChange={handleChange}
       />
       <input
+        className="create-recipe-input"
         type="number"
         name="cooking_time"
         placeholder="Temps de cuisson (en minutes)"
@@ -99,6 +109,7 @@ const CreateRecipe = () => {
         onChange={handleChange}
       />
       <input
+        className="create-recipe-input"
         type="number"
         name="total_time"
         placeholder="Temps total (en minutes)"
@@ -106,6 +117,7 @@ const CreateRecipe = () => {
         onChange={handleChange}
       />
       <input
+        className="create-recipe-input"
         type="number"
         name="servings"
         placeholder="Nombre de portions"
@@ -113,6 +125,7 @@ const CreateRecipe = () => {
         onChange={handleChange}
       />
       <input
+        className="create-recipe-input"
         type="text"
         name="cuisine_type"
         placeholder="Type de cuisine"
@@ -120,6 +133,7 @@ const CreateRecipe = () => {
         onChange={handleChange}
       />
       <select
+        className="create-recipe-select"
         name="difficulty_level"
         value={recipeData.difficulty_level}
         onChange={handleChange}
@@ -131,10 +145,11 @@ const CreateRecipe = () => {
         {/* Add more options based on your specific difficulty levels */}
       </select>
 
-      <button onClick={handleCreateRecipe}>Créer Recette</button>
+      <button className="create-recipe-button" onClick={handleCreateRecipe}>
+        Créer Recette
+      </button>
     </div>
   );
 };
 
 export default CreateRecipe;
-

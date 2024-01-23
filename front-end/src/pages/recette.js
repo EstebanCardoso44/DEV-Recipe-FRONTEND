@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
-const backendUrl = 'http://192.168.234.1:2000';
+const backendUrl = 'http://192.168.56.1:2000';
 
 const Recette = () => {
   const [recetteData, setRecetteData] = useState(null);

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Home.css';
 
-const backendUrl = 'http://192.168.234.1:2000';
+const backendUrl = 'http://192.168.56.1:2000';
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -101,7 +102,7 @@ const Home = () => {
     <div>
       <h1>Recipe List</h1>
 
-      <select onChange={handleCategoryChange}>
+      <select className="search-field" onChange={handleCategoryChange}>
         <option value="">Toutes les catégories</option>
         {Array.from(new Set(recipes.map((recipe) => recipe.categorie))).map((category) => (
           <option key={category} value={category}>
@@ -110,7 +111,7 @@ const Home = () => {
         ))}
       </select>
 
-      <select onChange={handleDifficultyChange}>
+      <select className="search-field" onChange={handleDifficultyChange}>
         <option value="">Toutes les difficultés</option>
         {Array.from(new Set(recipes.map((recipe) => recipe.difficulty_level))).map((difficulty) => (
           <option key={difficulty} value={difficulty}>
@@ -120,6 +121,7 @@ const Home = () => {
       </select>
 
       <input
+        className="search-field"
         type="text"
         placeholder="Rechercher une recette..."
         value={searchTerm}
