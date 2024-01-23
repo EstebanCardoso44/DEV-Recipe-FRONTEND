@@ -6,7 +6,7 @@ const Contact = () => {
       <h2>Contactez-nous</h2>
       <p>
         Vous pouvez nous contacter à l'adresse email suivante :{' '}
-        <a href="mailto:contact@example.com">contact@example.com</a>
+        <a href="mailto:contact@example.com">mbappe@mobutu.com</a>
       </p>
     </div>
   );
